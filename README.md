@@ -1,1 +1,2 @@
-Telerik API
+npm install
+npm start
