@@ -1,0 +1,56 @@
+{
+  "name": "TelerikAPI",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./server.js",
+    "nodemon": "nodemon ./server.js",
+    "eslint": "eslint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "==10.3"
+  },
+  "devDependencies": {
+    "eslint": "3.19.0",
+    "eslint-config-react-app": "1.0.0",
+    "eslint-loader": "1.7.1"
+  },
+  "dependencies": {
+    "body-parser": "1.18.1",
+    "btoa": "1.1.2",
+    "cors": "2.8.4",
+    "cross-env": "5.2.0",
+    "express": "4.15.4",
+    "jsonpath": "1.0.0",
+    "lodash": "4.17.10",
+    "moment": "2.21.0",
+    "node-fetch": "2.1.2",
+    "nodemon": "1.12.1",
+    "uuid": "3.2.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ],
+    "rules": {
+      "semi": [
+        1,
+        "always"
+      ],
+      "linebreak-style": [
+        0,
+        "unix"
+      ],
+      "quotes": [
+        "warn",
+        "single",
+        {
+          "allowTemplateLiterals": true
+        }
+      ],
+      "curly": "warn"
+    }
+  }
+}

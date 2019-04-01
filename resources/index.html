@@ -1,0 +1,222 @@
+<html lang='en'>
+<head>
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' rel='stylesheet'
+          integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous'>
+    <link rel='stylesheet' href='/resources/index.css'>
+</head>
+<body>
+
+<div id='navbar'>
+    <h3 id='navbar-title'>TelerikAPI</h3>
+</div>
+<div class='container-fluid main-container'>
+    <div id='documentation' class='row'>
+        <div class='col-xs-12 side-menu-col col-sm-4 col-md-3'>
+            <div class='side-menu'>
+                <h5 class='menu-heading'>Navigation</h5>
+                <div class='menu-body'>
+                    <p id='menu-items-travel-time'>/api/travelTimeTableData/</p>
+                    <p id='menu-items-compare-periods'>/api/comparePeriods/</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class='description travel-time-description col-xs-12 col-sm-8 col-md-9'>
+            <h2 class='docs-head'>/api/travelTimeTableData?<span class='colorful-words'>{devices}</span>&<span
+                class='colorful-words'>{date}</span></h2>
+            <div class='docs-body row'>
+                <div class='col-xs-12 col-md-6'>
+                    <h4>Parameters</h4>
+                    <p><span class='colorful-words'>{devices}</span> Array of IDs; <i>required</i></p>
+                    <p>id: string, <i>minimum two device IDs; required</i></p>
+                    <p>Example: ['a83', 'hj72', 'w21']</p>
+                    <p><span class='colorful-words'>{date}</span> Object of start and end date; <i>required</i></p>
+                    <p>from: number - start date in milliseconds; <i>required</i></p>
+                    <p>to: number - end date in milliseconds; <i>required</i></p>
+                    <p>Example: {from: 1539129600000, to: 1539180000000}</p>
+                </div>
+                <div class='col-xs-12 col-md-6'>
+                    <h4>Try it</h4>
+                    <div>
+                        <a target='_blank'
+                           href='/api/travelTimeTableData?devices=a83%2Chj72%2Cw21&date=%7B%22from%22%3A1539129600000%2C%22to%22%3A1539180000000%7D'>/api/travelTimeTableData?devices=a83%2Chj72%2Cw21&date=%7B%22from%22%3A1539129600000%2C%22to%22%3A1539180000000%7D</a>
+                    </div>
+                    <code id='travel-time-response'></code>
+                    <button class='btn get-travel-time-data'>Execute</button>
+                </div>
+            </div>
+            <div class='docs-body row'>
+                <div class='col-xs-12 col-md-6'>
+                    <h4>Schema</h4>
+                    <ul>
+                        <li><span>"<span>Origin ID</span>"</span>:<span><span
+                        > {</span><ul><li><span>"<span
+                        >Destination ID</span>"</span>:<span> Travel Time</span>,</li><li><span>"<span
+                        >Destination ID</span>"</span>:<span> Travel Time</span>,</li><li><span
+                        >"<span>Destination ID</span>"</span>:<span
+                        > Travel Time</span></li></ul><span>}</span></span></li>
+                    </ul>
+                </div>
+                <div class='col-xs-12 col-md-6'>
+                    <h4>Response</h4>
+                    <div>
+                        <code>
+                            <ul>
+                                <li><span>"<span>w21</span>"</span>:<span><span
+                                > {</span><ul><li><span>"<span
+                                >w21</span>"</span>:<span> ""</span>,</li><li><span>"<span
+                                >hj72</span>"</span>:<span> 43</span>,</li><li><span
+                                >"<span>a83</span>"</span>:<span
+                                > 64</span></li></ul><span>}</span>,</span></li>
+                                <li><span>"<span>hj72</span>"</span>:<span
+                                ><span> {</span><ul><li><span>"<span>hj72</span>"</span>:<span
+                                > ""</span>,</li><li><span>"<span>w21</span>"</span>:<span
+                                > 20</span>,</li><li><span>"<span>a83</span>"</span>:<span
+                                > 22</span></li></ul><span>}</span>,</span></li>
+                                <li><span>"<span>a83</span>"</span>:<span><span
+                                > {</span><ul><li><span>"<span
+                                >a83</span>"</span>:<span> ""</span>,</li><li><span>"<span
+                                >hj72</span>"</span>:<span> 40</span>,</li><li><span
+                                >"<span>w21</span>"</span>:<span
+                                > 61</span></li></ul><span>}</span></span></li>
+                            </ul>
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class='description compare-periods-description col-xs-12 col-sm-8 col-md-9'>
+            <h2 class='docs-head'>/api/comparePeriods?<span class='colorful-words'>{originDeviceId}</span>&<span
+                class='colorful-words'>{destinationDeviceId}</span>&<span
+                class='colorful-words'>{startDates}</span>&<span class='colorful-words'>{periodLength}</span>
+            </h2>
+            <div class='docs-body row'>
+                <div class='col-xs-12 col-md-6'>
+                    <h4>Parameters</h4>
+                    <p><span class='colorful-words'>{originDeviceId}</span> string;</p>
+                    <p><span class='colorful-words'>{destinationDeviceId}</span> string;</p>
+                    <p><span class='colorful-words'>{startDates}</span> Array of start dates; <i>required</i></p>
+                    <p>start date: number - start date in milliseconds; <i>required</i></p>
+                    <p>Example: [1539129600000, 1539180000000]</p>
+                    <p><span class='colorful-words'>{periodLength}</span> number - period length in milliseconds; <i>required</i>
+                    <p>Example: 3600000</p>
+                    </p>
+                </div>
+                <div class='col-xs-12 col-md-6'>
+                    <h4>Try it</h4>
+                    <div>
+                        <a target='_blank'
+                           href='/api/comparePeriods?originDeviceId=aa&destinationDeviceId=bb&startDates=1539129600000%2C1539180000000&periodLength=3600000'>/api/comparePeriods?originDeviceId=aa&destinationDeviceId=bb&startDates=1539129600000%2C1539180000000&periodLength=3600000</a>
+                    </div>
+                    <code id='compare-periods-response'></code>
+                    <button class='btn get-compare-periods-data'>Execute</button>
+                </div>
+            </div>
+            <div class='docs-body row'>
+                <div class='col-xs-12 col-md-6'>
+                    <h4>Schema</h4>
+                    <ul>
+                        <li><span>"<span>Start Date</span>"</span>:<span
+                        ><span> [</span><ol><li><span><span
+                        >{</span><ul><li><span>"<span
+                        >x</span>"</span>:<span> Time</span>,</li><li><span
+                        >"<span>y</span>"</span>:<span
+                        > Travel Time</span></li></ul><span>}</span></span></li></ol></span></li>
+                    </ul>
+                </div>
+                <div class='col-xs-12 col-md-6'>
+                    <h4>Response</h4>
+                    <div>
+                        <code>
+                            <ul>
+                                <li><span>"<span>1539129600000</span>"</span>:<span
+                                ><span> [</span><ol><li><span><span
+                                >{</span><ul><li><span>"<span
+                                >x</span>"</span>:<span> 1539129600000</span>,</li><li><span
+                                >"<span>y</span>"</span>:<span
+                                > 18</span></li></ul><span>}</span>,</span></li><li><span
+                                ><span>{</span><ul><li><span>"<span>x</span>"</span>:<span
+                                > 1539130500000</span>,</li><li><span>"<span
+                                >y</span>"</span>:<span> 33</span></li></ul><span>}</span>,</span></li><li><span
+                                ><span>{</span><ul><li><span>"<span>x</span>"</span>:<span
+                                > 1539131400000</span>,</li><li><span>"<span
+                                >y</span>"</span>:<span> 18</span></li></ul><span>}</span>,</span></li><li><span
+                                ><span>{</span><ul><li><span>"<span>x</span>"</span>:<span
+                                > 1539132300000</span>,</li><li><span>"<span
+                                >y</span>"</span>:<span> 33</span></li></ul><span>}</span>,</span></li></ol><span
+                                >]</span></span>,
+                                </li>
+                                <li><span>"<span>1539180000000</span>"</span>:<span
+                                ><span> [</span><ol><li><span><span
+                                >{</span><ul><li><span>"<span
+                                >x</span>"</span>:<span> 1539180000000</span>,</li><li><span
+                                >"<span>y</span>"</span>:<span
+                                > 57</span></li></ul><span>}</span>,</span></li><li><span
+                                ><span>{</span><ul><li><span>"<span>x</span>"</span>:<span
+                                > 1539180900000</span>,</li><li><span>"<span
+                                >y</span>"</span>:<span> 37</span></li></ul><span>}</span>,</span></li><li><span
+                                ><span>{</span><ul><li><span>"<span>x</span>"</span>:<span
+                                > 1539181800000</span>,</li><li><span>"<span
+                                >y</span>"</span>:<span> 97</span></li></ul><span>}</span>,</span></li><li><span
+                                ><span>{</span><ul><li><span>"<span>x</span>"</span>:<span
+                                > 1539182700000</span>,</li><li><span>"<span
+                                >y</span>"</span>:<span> 52</span></li></ul><span>}</span>,</span></li></ol><span
+                                >]</span></span></li>
+                            </ul>
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.getElementById('menu-items-travel-time').addEventListener('click', function () {
+        document.getElementsByClassName('travel-time-description')[0].style.display = 'inline-block';
+        document.getElementsByClassName('compare-periods-description')[0].style.display = 'none';
+        document.getElementById('compare-periods-response').style.display = 'none';
+    });
+
+    document.getElementById('menu-items-compare-periods').addEventListener('click', function () {
+        document.getElementsByClassName('compare-periods-description')[0].style.display = 'inline-block';
+        document.getElementsByClassName('travel-time-description')[0].style.display = 'none';
+        document.getElementById('travel-time-response').style.display = 'none';
+    });
+
+    document.getElementsByClassName('get-travel-time-data')[0].addEventListener('click', function () {
+        const devices = ['a83', 'hj72', 'w21'];
+        fetch(`/api/travelTimeTableData?devices=${encodeURIComponent(devices)}&date=${encodeURIComponent(JSON.stringify({
+            from: 1539129600000,
+            to: 1539180000000
+        }))}`, {
+            method: 'GET',
+        }).then((response) => {
+            response.json().then(function (data) {
+                document.getElementById('travel-time-response').innerText = JSON.stringify(data);
+            });
+        });
+
+        document.getElementById('travel-time-response').style.display = 'block';
+    });
+
+    document.getElementsByClassName('get-compare-periods-data')[0].addEventListener('click', function () {
+        fetch(`/api/comparePeriods?originDeviceId=aa&destinationDeviceId=bb&startDates=${encodeURIComponent([1539129600000, 1539180000000])}&periodLength=3600000`, {
+            method: 'GET',
+        }).then((response) => {
+            response.json().then(function (data) {
+                document.getElementById('compare-periods-response').innerText = JSON.stringify(data);
+            });
+        });
+
+        document.getElementById('compare-periods-response').style.display = 'inline-block';
+    });
+
+
+</script>
+</body>
+</html>
